@@ -20,10 +20,8 @@ let count = 0
 app.post('/', (req, res) => {
   try {
     count++;
-    res.send('ok');
     const result = validateEmail(req.body.q);
-    fs.appendFile(filename, `${count}\t${result}\t${req.body.q}\n`, (err) => {if (err) console.log(err);});
-    // res.send(result);
+    res.send(result);
     console.log(`${count}: ${result}`);
   } catch (e) {
     res.status(500).send(`Server error: ${e}`);
