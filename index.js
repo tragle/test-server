@@ -1,13 +1,10 @@
 const crypto = require('crypto'); 
 const express = require('express');
 const parser = require('body-parser');
-const fs = require('fs');
 const app = express();
 const port = 3000;
-const filename = 'log.txt';
 
 app.use(parser.urlencoded());
-fs.closeSync(fs.openSync(filename, 'w'));
 
 const validateEmail = (email) => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
